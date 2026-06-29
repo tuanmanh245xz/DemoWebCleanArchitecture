@@ -20,16 +20,6 @@
     "PostalCode": "10000N"
   },
   {
-    "Id": 3,
-    "UserName": "Test3",
-    "Email": "test@gmail.com",
-    "Phone": 868143729,
-    "Address": "Ha Noi",
-    "City": "Ha Noi",
-    "Region": "Viet Nam",
-    "PostalCode": "10000N"
-  },
-  {
     "Id": 0,
     "UserName": "Manh",
     "Email": "tuanmanh435@gmail.com",
