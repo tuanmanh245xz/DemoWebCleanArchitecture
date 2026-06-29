@@ -17,6 +17,12 @@ namespace Demo.Infrastructure.Repositories
         public void Add(User user)
         {
             List<User> users = ReadUsers();
+            //tang Id
+            int newId = users.Any()
+              ? users.Max(x => x.Id) + 1
+              : 1;
+
+            user.Id = newId;
             users.Add(user);
             SaveUsers(users);
         }
@@ -39,7 +45,7 @@ namespace Demo.Infrastructure.Repositories
         {
             List<User> users = ReadUsers();
             User? Olduser = users.FirstOrDefault(x => x.Id == user.Id);
-            if (Olduser != null) 
+            if (Olduser == null) 
             {
                 return ;
             }

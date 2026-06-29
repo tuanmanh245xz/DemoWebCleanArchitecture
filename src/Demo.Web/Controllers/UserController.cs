@@ -64,7 +64,7 @@ namespace Demo.Web.Controllers
         {
             AddUserRequest request = new()
             {
-                Id = model.Id,
+               
                 UserName = model.UserName,
                 Email = model.Email,
                 Phone = model.Phone,
@@ -93,6 +93,7 @@ namespace Demo.Web.Controllers
             }
             UpdateUserViewModel model = new UpdateUserViewModel() 
             {
+                Id = results.Data.Id,
                 UserName = results.Data.UserName,
                 Email = results.Data.Email,
                 Phone = results.Data.Phone,
@@ -108,6 +109,7 @@ namespace Demo.Web.Controllers
         {
             UpdateUserRequest request = new UpdateUserRequest() 
             {
+                Id = model.Id,
                 UserName = model.UserName,
                 Email = model.Email,
                 Phone = model.Phone,

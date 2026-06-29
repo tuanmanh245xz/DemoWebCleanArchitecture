@@ -1,9 +1,9 @@
 [
   {
     "Id": 1,
-    "UserName": "Test",
+    "UserName": "Test10",
     "Email": "test@gmail.com",
-    "Phone": 868143729,
+    "Phone": 0,
     "Address": "Ha Noi",
     "City": "Ha Noi",
     "Region": "Viet Nam",
@@ -37,6 +37,26 @@
     "Address": "Ha Noi",
     "City": "ha noi",
     "Region": "VN",
+    "PostalCode": "1212212"
+  },
+  {
+    "Id": 0,
+    "UserName": "hoantfdHanoi",
+    "Email": "test@gmail.com",
+    "Phone": 0,
+    "Address": "TP.HCM",
+    "City": "Bac Ninh",
+    "Region": "Viet Nam",
+    "PostalCode": "1212212"
+  },
+  {
+    "Id": 4,
+    "UserName": "Manh97xzqw",
+    "Email": "tuanmanh435@gmail.com",
+    "Phone": 0,
+    "Address": "Ha Noi",
+    "City": "Ha Noi",
+    "Region": "Viet Nam",
     "PostalCode": "1212212"
   }
 ]
