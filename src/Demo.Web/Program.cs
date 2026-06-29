@@ -1,8 +1,16 @@
+using Demo.Application.Interfaces;
+using Demo.Application.Services.ProductService;
+using Demo.Application.Services.UserService;
+using Demo.Infrastructure.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<IProductRepository, JsonProductRepository>();
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<IUserRepository,JsonUserRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

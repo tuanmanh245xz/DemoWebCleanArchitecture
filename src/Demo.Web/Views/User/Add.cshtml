@@ -1,0 +1,50 @@
+﻿@model Demo.Web.Models.User.AddUserViewModel
+
+<h1>Them User</h1>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p style="color: red">@ViewBag.ErrorMessage</p>
+}
+
+<form asp-controller="User" asp-action="Add" method="post">
+    <div>
+        <input type="hidden" asp-for="Id" />
+    </div>
+    <div>
+        <label>UserNam :</label>
+        <input type="text" asp-for="UserName" />
+    </div>
+
+    <div>
+        <label>Email :</label>
+        <input type="text" asp-for="Email" />
+    </div>
+
+    <div>
+        <label>Phone :</label>
+        <input type="number" asp-for="Phone" />
+    </div>
+    <div>
+        <label>Address :</label>
+        <input type="text" asp-for="Address" />
+    </div>
+    <div>
+        <label>City :</label>
+        <input type="text" asp-for="City" />
+    </div>
+    <div>
+        <label>Region :</label>
+        <input type="text" asp-for="Region" />
+    </div>
+    <div>
+        <label>PostCode :</label>
+        <input type="text" asp-for="PostalCode" />
+    </div>
+
+    <button type="submit">Save</button>
+</form>
+
+<p>
+    <a asp-controller="User" asp-action="Index">Quay lai</a>
+</p>

@@ -1,0 +1,11 @@
+﻿@model Demo.Web.Models.Products.ProductListItemViewModel
+
+<h1>Chi tiet san pham</h1>
+
+<p>Ma: @Model.Code</p>
+<p>Ten: @Model.Name</p>
+<p>Gia: @Model.Price</p>
+
+<p>
+    <a asp-controller="Product" asp-action="Index">Quay lai</a>
+</p>

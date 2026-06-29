@@ -1,0 +1,15 @@
+﻿@model Demo.Web.Models.User.UserListItemViewModel
+
+<h1>Thông Tin User</h1>
+
+<div>
+    <p>User Name : <span>@Model.UserName</span></p>
+    <p>Email : <span>@Model.Email</span></p>
+    <p>Phone Number : <span>@Model.Phone</span></p>
+    <p>Address : <span>@Model.Address</span></p>
+    <p>City: <span>@Model.City</span></p>
+    <p>Region : <span>@Model.Region</span></p>
+    <p>PostCode : <span>@Model.PostalCode</span></p>
+   
+    <a asp-controller="User" asp-action="Index">Quay lại</a>
+</div>

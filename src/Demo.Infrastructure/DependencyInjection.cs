@@ -10,7 +10,7 @@ namespace Demo.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
             services.AddScoped<IProductRepository, JsonProductRepository>();
-
+            services.AddScoped<IUserRepository, JsonUserRepository>();
             return services;
         }
     }

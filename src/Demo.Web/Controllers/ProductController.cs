@@ -1,6 +1,7 @@
-﻿using Demo.Application.Requests;
+﻿using Demo.Application.Requests.Products;
 using Demo.Application.Results;
-using Demo.Application.Services;
+using Demo.Application.Results.ProductResults;
+using Demo.Application.Services.ProductService;
 using Demo.Domain.Entities;
 using Demo.Web.Models.Products;
 using Microsoft.AspNetCore.Mvc;
@@ -32,19 +33,19 @@ namespace Demo.Web.Controllers
 
         public IActionResult Details(string code)
         {
-            ProductCheckResult result = _productService.CheckResult(code);
+            ResultsGeneric<Product> result = _productService.CheckResult(code);
 
-            if (!result.IsSuccess || result.Product == null)
+            if (!result.IsSuccessed || result.Data == null)
             {
-                TempData["ErrorMessage"] = result.Message;
+                TempData["ErrorMessage"] = result.Messsage;
                 return RedirectToAction("Index");
             }
 
             ProductListItemViewModel model = new()
             {
-                Code = result.Product.Code,
-                Name = result.Product.Name,
-                Price = result.Product.Price
+                Code = result.Data.Code,
+                Name = result.Data.Name,
+                Price = result.Data.Price
             };
 
             return View(model);
@@ -65,33 +66,33 @@ namespace Demo.Web.Controllers
                 Price = model.Price
             };
 
-            AddProductResult result = _productService.AddProduct(request);
+            ResultsGeneric<Product> result = _productService.AddProduct(request);
 
-            if (!result.IsSuccess)
+            if (!result.IsSuccessed)
             {
-                ViewBag.ErrorMessage = result.Message;
+                ViewBag.ErrorMessage = result.Messsage;
                 return View(model);
             }
 
-            TempData["SuccessMessage"] = result.Message;
+            TempData["SuccessMessage"] = result.Messsage;
             return RedirectToAction("Index");
         }
 
         public IActionResult Update(string code)
         {
-            ProductCheckResult result = _productService.CheckResult(code);
+            ResultsGeneric<Product> result = _productService.CheckResult(code);
 
-            if (!result.IsSuccess || result.Product == null)
+            if (!result.IsSuccessed || result.Data == null)
             {
-                TempData["ErrorMessage"] = result.Message;
+                TempData["ErrorMessage"] = result.Messsage;
                 return RedirectToAction("Index");
             }
 
             UpdateProductViewModel model = new()
             {
-                Code = result.Product.Code,
-                Name = result.Product.Name,
-                Price = result.Product.Price
+                Code = result.Data.Code,
+                Name = result.Data.Name,
+                Price = result.Data.Price
             };
 
             return View(model);
@@ -107,32 +108,32 @@ namespace Demo.Web.Controllers
                 Price = model.Price
             };
 
-            UpdateProductResult result = _productService.UpdateProduct(request);
+            ResultsGeneric<Product> result = _productService.UpdateProduct(request);
 
-            if (!result.IsSuccess)
+            if (!result.IsSuccessed)
             {
-                ViewBag.ErrorMessage = result.Message;
+                ViewBag.ErrorMessage = result.Messsage;
                 return View(model);
             }
 
-            TempData["SuccessMessage"] = result.Message;
+            TempData["SuccessMessage"] = result.Messsage;
             return RedirectToAction("Index");
         }
 
         public IActionResult Delete(string code)
         {
-            ProductCheckResult result = _productService.CheckResult(code);
+            ResultsGeneric<Product> result = _productService.CheckResult(code);
 
-            if (!result.IsSuccess || result.Product == null)
+            if (!result.IsSuccessed || result.Data == null)
             {
-                TempData["ErrorMessage"] = result.Message;
+                TempData["ErrorMessage"] = result.Messsage;
                 return RedirectToAction("Index");
             }
 
             DeleteProductViewModel model = new()
             {
-                Code = result.Product.Code,
-                Name = result.Product.Name
+                Code = result.Data.Code,
+                Name = result.Data.Name
             };
 
             return View(model);
@@ -146,15 +147,15 @@ namespace Demo.Web.Controllers
                 Code = model.Code
             };
 
-            DeleteProductResult result = _productService.DeleteProduct(request);
+            ResultsGeneric<Product> result = _productService.DeleteProduct(request);
 
-            if (!result.IsSuccess)
+            if (!result.IsSuccessed)
             {
-                ViewBag.ErrorMessage = result.Message;
+                ViewBag.ErrorMessage = result.Messsage;
                 return View(model);
             }
 
-            TempData["SuccessMessage"] = result.Message;
+            TempData["SuccessMessage"] = result.Messsage;
             return RedirectToAction("Index");
         }
     }

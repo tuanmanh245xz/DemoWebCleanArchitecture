@@ -1,0 +1,24 @@
+﻿@model Demo.Web.Models.Products.DeleteProductViewModel
+
+<h1>Xoa san pham</h1>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p style="color: red">@ViewBag.ErrorMessage</p>
+}
+
+<p>Ban co chac muon xoa san pham nay khong?</p>
+
+<p>Ma: @Model.Code</p>
+<p>Ten: @Model.Name</p>
+
+<form asp-controller="Product" asp-action="Delete" method="post">
+    <input asp-for="Code" type="hidden" />
+    <input asp-for="Name" type="hidden" />
+
+    <button type="submit">Xoa</button>
+</form>
+
+<p>
+    <a asp-controller="Product" asp-action="Index">Quay lai</a>
+</p>

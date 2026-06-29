@@ -1,8 +1,5 @@
 ﻿using Demo.Application.Interfaces;
 using Demo.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.Json;
 
 namespace Demo.Infrastructure.Repositories
@@ -38,17 +35,36 @@ namespace Demo.Infrastructure.Repositories
 
         public Product? FindByCode(string code)
         {
-            throw new NotImplementedException();
+            List<Product> products = ReadProducts();
+
+            Product? product = products.FirstOrDefault(item =>
+                item.Code.Equals(code, StringComparison.OrdinalIgnoreCase));
+            if (product == null) 
+            {
+                return null;
+            }
+           return product;
         }
 
         public List<Product> GetAll()
         {
-            throw new NotImplementedException();
+           return ReadProducts();
         }
 
         public void Update(Product product)
         {
-            throw new NotImplementedException();
+            List<Product> products = ReadProducts();
+            Product? OldProduct = products.FirstOrDefault(item =>
+               item.Code.Equals(product.Code, StringComparison.OrdinalIgnoreCase));
+
+            if (OldProduct == null) 
+            {
+                return;
+            }
+            OldProduct.Name = product.Name;
+            OldProduct.Price = product.Price;
+            SaveProducts(products);
+
         }
         private List<Product> ReadProducts()
         {
