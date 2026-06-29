@@ -1,4 +1,5 @@
 ﻿using Demo.Application.Services.ProductService;
+using Demo.Application.Services.UserLoginService;
 using Demo.Application.Services.UserService;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -13,6 +14,7 @@ namespace Demo.Application
         {
             services.AddScoped<ProductService>();
             services.AddScoped<UserService>();
+            services.AddScoped<UserLoginService>();
             return services;
         }
     }
