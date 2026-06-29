@@ -1,0 +1,45 @@
+﻿@model List<Demo.Web.Models.Products.ProductListItemViewModel>
+
+<h1>Danh sach san pham</h1>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <p style="color: green">@TempData["SuccessMessage"]</p>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <p style="color: red">@TempData["ErrorMessage"]</p>
+}
+
+<p>
+    <a asp-controller="Product" asp-action="Add">Them san pham</a>
+</p>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Ma</th>
+            <th>Ten</th>
+            <th>Gia</th>
+            <th>Thao tac</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Code</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>
+                    <a asp-controller="Product" asp-action="Details" asp-route-code="@product.Code">Xem</a>
+                    |
+                    <a asp-controller="Product" asp-action="Update" asp-route-code="@product.Code">Sua</a>
+                    |
+                    <a asp-controller="Product" asp-action="Delete" asp-route-code="@product.Code">Xoa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

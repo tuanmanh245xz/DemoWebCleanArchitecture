@@ -1,0 +1,31 @@
+﻿@model Demo.Web.Models.Products.AddProductViewModel
+
+<h1>Them san pham</h1>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p style="color: red">@ViewBag.ErrorMessage</p>
+}
+
+<form asp-controller="Product" asp-action="Add" method="post">
+    <div>
+        <label>Ma san pham</label>
+        <input asp-for="Code" />
+    </div>
+
+    <div>
+        <label>Ten san pham</label>
+        <input asp-for="Name" />
+    </div>
+
+    <div>
+        <label>Gia</label>
+        <input asp-for="Price" />
+    </div>
+
+    <button type="submit">Luu</button>
+</form>
+
+<p>
+    <a asp-controller="Product" asp-action="Index">Quay lai</a>
+</p>

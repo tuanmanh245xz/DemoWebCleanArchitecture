@@ -1,0 +1,22 @@
+[
+  {
+    "Code": "P002",
+    "Name": "Mouse LogicTech",
+    "Price": 25.00
+  },
+  {
+    "Code": "P003",
+    "Name": "Keyboard",
+    "Price": 50
+  },
+  {
+    "Code": "Phone",
+    "Name": "Iphone",
+    "Price": 10.00
+  },
+  {
+    "Code": "Android",
+    "Name": "SamSung",
+    "Price": 9.00
+  }
+]

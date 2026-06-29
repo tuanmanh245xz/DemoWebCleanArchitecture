@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Demo.Application.Requests
+﻿namespace Demo.Web.Models.Products
 {
-    public class UpdateProductRequest
+    public class UpdateProductViewModel
     {
         public string Code { get; set; } = "";
         public string Name { get; set; } = "";

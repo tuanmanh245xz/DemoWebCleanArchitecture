@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Demo.Application.Results
+namespace Demo.Application.Results.ProductResults
 {
     public class UpdateProductResult
     {

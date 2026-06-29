@@ -1,0 +1,31 @@
+﻿@model Demo.Web.Models.Products.UpdateProductViewModel
+
+<h1>Sua san pham</h1>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p style="color: red">@ViewBag.ErrorMessage</p>
+}
+
+<form asp-controller="Product" asp-action="Update" method="post">
+    <div>
+        <label>Ma san pham</label>
+        <input asp-for="Code" readonly />
+    </div>
+
+    <div>
+        <label>Ten san pham</label>
+        <input asp-for="Name" />
+    </div>
+
+    <div>
+        <label>Gia</label>
+        <input asp-for="Price" />
+    </div>
+
+    <button type="submit">Cap nhat</button>
+</form>
+
+<p>
+    <a asp-controller="Product" asp-action="Index">Quay lai</a>
+</p>

@@ -12,7 +12,7 @@ namespace Demo.Application.Interfaces
         List<Product> GetAll();
         void Add(Product product);
         void Update(Product product);
-        void Delete(Product product);
+     
         void Delete(string code);
     }
 }

@@ -1,0 +1,56 @@
+﻿@model List<Demo.Web.Models.User.UserListItemViewModel>
+
+<h1>Danh sach User</h1>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <p style="color: green">@TempData["SuccessMessage"]</p>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <p style="color: red">@TempData["ErrorMessage"]</p>
+}
+
+<p>
+    <a asp-controller="User" asp-action="Add">Them User</a>
+</p>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tên</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Region</th>
+            <th>PostalCode</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+
+                <td>@user.Id</td>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.Phone</td>
+                <td>@user.Address</td>
+                <td>@user.City</td>
+                <td>@user.Region</td>
+                <td>@user.PostalCode</td>
+
+                <td>
+                    <a asp-controller="User" asp-action="Details" asp-route-id="@user.Id">Xem</a>
+                    |
+                    <a asp-controller="User" asp-action="Update" asp-route-id="@user.Id">Sua</a>
+                    |
+                    <a asp-controller="User" asp-action="Delete" asp-route-id="@user.Id">Xoa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
