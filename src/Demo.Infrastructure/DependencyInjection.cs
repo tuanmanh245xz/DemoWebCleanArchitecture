@@ -11,6 +11,7 @@ namespace Demo.Infrastructure
         {
             services.AddScoped<IProductRepository, JsonProductRepository>();
             services.AddScoped<IUserRepository, JsonUserRepository>();
+            services.AddScoped<IUserLoginRepository, JsonUserLoginRepository>();
             return services;
         }
     }

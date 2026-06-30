@@ -64,7 +64,7 @@ namespace Demo.Web.Controllers
         {
             AddUserRequest request = new()
             {
-                Id = model.Id,
+               
                 UserName = model.UserName,
                 Email = model.Email,
                 Phone = model.Phone,
@@ -93,6 +93,7 @@ namespace Demo.Web.Controllers
             }
             UpdateUserViewModel model = new UpdateUserViewModel() 
             {
+                Id = results.Data.Id,
                 UserName = results.Data.UserName,
                 Email = results.Data.Email,
                 Phone = results.Data.Phone,
@@ -108,6 +109,7 @@ namespace Demo.Web.Controllers
         {
             UpdateUserRequest request = new UpdateUserRequest() 
             {
+              
                 UserName = model.UserName,
                 Email = model.Email,
                 Phone = model.Phone,
@@ -118,6 +120,38 @@ namespace Demo.Web.Controllers
 
             };
             ResultsGeneric<User> results = _userService.UpdateUser(request);
+            if (!results.IsSuccessed)
+            {
+                ViewBag.ErrorMessage = results.Messsage;
+                return View(model);
+            }
+            TempData["SuccessMessage"] = results.Messsage;
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Delete(int id) 
+        {
+            ResultsGeneric<User> results = _userService.CheckResult(id);
+            if (!results.IsSuccessed || results.Data == null)
+            {
+                TempData["ErrorMessage"] = results.Messsage;
+                return RedirectToAction("Index");
+            }
+            DeleteUserViewModel model = new DeleteUserViewModel()
+            {
+                Id = results.Data.Id,
+                UserName = results.Data.UserName,
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult Delete(DeleteUserViewModel model)
+        {
+            DeleteUserRequest request = new DeleteUserRequest() 
+            {
+                Id = model.Id,
+            };
+            ResultsGeneric<User> results = _userService.DeleteUser(request);
             if (!results.IsSuccessed)
             {
                 ViewBag.ErrorMessage = results.Messsage;

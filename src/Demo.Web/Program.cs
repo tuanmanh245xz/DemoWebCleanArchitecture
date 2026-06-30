@@ -1,5 +1,6 @@
 using Demo.Application.Interfaces;
 using Demo.Application.Services.ProductService;
+using Demo.Application.Services.UserLoginService;
 using Demo.Application.Services.UserService;
 using Demo.Infrastructure.Repositories;
 
@@ -11,6 +12,8 @@ builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<IProductRepository, JsonProductRepository>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<IUserRepository,JsonUserRepository>();
+builder.Services.AddScoped<UserLoginService>();
+builder.Services.AddScoped<IUserLoginRepository, JsonUserLoginRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

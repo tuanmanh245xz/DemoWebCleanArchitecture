@@ -68,7 +68,7 @@ namespace Demo.Application.Services.UserService
             }
             //kiem tra xem da ton tai chua
             User? user = _userRepository.FindById(request.Id);
-            if (user != null)
+            if (user == null)
             {
                 return ResultsGeneric<User>.Fail("User chua ton tai");
             }
@@ -89,10 +89,10 @@ namespace Demo.Application.Services.UserService
         
         public ResultsGeneric<User> UpdateUser(UpdateUserRequest request)
         {
-            if (request.Id == 0) 
-            {
-                return ResultsGeneric<User>.Fail("Not found User");
-            }
+            //if (request.Id == 0) 
+            //{
+            //    return ResultsGeneric<User>.Fail("Not found User");
+            //}
             if (string.IsNullOrEmpty(request.UserName))
             {
                 return ResultsGeneric<User>.Fail("Ten khong duoc de trong");
