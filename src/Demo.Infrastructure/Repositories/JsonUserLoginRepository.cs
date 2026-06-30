@@ -121,7 +121,7 @@ namespace Demo.Infrastructure.Repositories
                     Password = "Admin",
                     IsActive = true,
                     IsLocked = false,
-                    Roler = "User",
+                    Roler = "Admin",
                 },
 
             };
@@ -137,6 +137,18 @@ namespace Demo.Infrastructure.Repositories
         public UserLogin? TimeTolock(bool IsLocked)
         {
             throw new NotImplementedException();
+        }
+
+        public UserLogin? FindByName(string name)
+        {
+            List<UserLogin> users = ReadUsers();
+            UserLogin? user = users.FirstOrDefault(x => x.UserName == name);
+            if (user == null)
+            {
+                return null;
+            }
+
+            return user; ;
         }
     }
 }

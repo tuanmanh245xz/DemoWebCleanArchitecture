@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "UserName": "Test",
+    "Password": "Admin",
+    "IsActive": true,
+    "IsLocked": false,
+    "Roler": "User"
+  },
+  {
+    "Id": 2,
+    "UserName": "Test2",
+    "Password": "Admin1",
+    "IsActive": true,
+    "IsLocked": true,
+    "Roler": "User"
+  },
+  {
+    "Id": 3,
+    "UserName": "Admin",
+    "Password": "Admin",
+    "IsActive": true,
+    "IsLocked": false,
+    "Roler": "Admin"
+  }
+]

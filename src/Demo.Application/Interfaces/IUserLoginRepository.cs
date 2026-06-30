@@ -10,6 +10,7 @@ namespace Demo.Application.Interfaces
     public interface IUserLoginRepository
     {
         UserLogin? FindById(int id);
+        UserLogin? FindByName(string name);
         UserLogin? FindIsActive(bool isActive);
         UserLogin? TimeTolock(bool IsLocked);
         void Add(UserLogin user);

@@ -15,18 +15,26 @@ namespace Demo.Application.Services.UserLoginService
         {
             _userLoginRepository = userLoginRepository;
         }
-        public ResultsGeneric<UserLogin> CheckResult(int id)
+        public ResultsGeneric<UserLogin> CheckResult(UserLoginRequest request)
         {
-            if (id == 0)
+            UserLogin? userLogin = _userLoginRepository.FindByName(request.UserName);
+            if (request.UserName == null || userLogin.UserName != request.UserName)
             {
-                return ResultsGeneric<UserLogin>.Fail("Khong tim thay User");
+                return ResultsGeneric<UserLogin>.Fail("UserName không được để trống");
             }
-            UserLogin? userLogin = _userLoginRepository.FindById(id);
-            if (userLogin == null)
+            if (request.Password == null || userLogin.Password != request.Password)
             {
-                return ResultsGeneric<UserLogin>.Fail("khong tim thay User Name");
+                return ResultsGeneric<UserLogin>.Fail("Password không được để trống");
             }
-            return ResultsGeneric<UserLogin>.Success(userLogin, "Tim thay UserNam");
+            if(userLogin.Roler == "Admin")
+            {
+                return ResultsGeneric<UserLogin>.Success(userLogin,"UserName không Phải Admin");
+            }
+            if (userLogin.Roler == "User")
+            {
+                return ResultsGeneric<UserLogin>.Success(userLogin, "UserName không Phải user");
+            }
+            return ResultsGeneric<UserLogin>.Success(userLogin, "Tim thay UserName");
         }
         public List<UserLogin> GetAll() 
         {
